@@ -10,13 +10,47 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <!-- Your header content here -->
+<header>
+        <h1><p id="title">Music Player Explorer</p></h1>
     </header>
-
-    <main> 
-        <!-- Your main content here -->
+    <main>
+        <nav class = "playlist-cards">
+        </nav>
+            <article class = "playlist">
+                <img id="holder" src="/music-playlist-creator/assets/img/playlist.png" onclick="openModal(this)">
+                <div id="playlistModal" class = "modal">
+                    <span class = "close">&times;</span>
+                    <img class="modal-content" id="img1">
+                    <div id = "modal-container">
+                        <img id = "cover" src = "/music-playlist-creator/assets/img/playlist.png">
+                        <div class = "playlist-info">
+                            <h2>Playlist title</h2>
+                            <p>Creator Name</p>
+                        </div>
+                        <img class = "song" src = "/music-playlist-creator/assets/img/song.png">
+                        <div class = "song-info">
+                            <h4>Song title</h4>
+                            <p>Artist Name</p>
+                            <p>Album Name</p>
+                        </div>
+                        <img class = "song" src = "/music-playlist-creator/assets/img/song.png">
+                        <div class = "song-info">
+                            <h4>Song title</h4>
+                            <p>Artist Name</p>
+                            <p>Album Name</p>
+                        </div>
+                        <img class = "song" src = "/music-playlist-creator/assets/img/song.png">
+                        <div class = "song-info">
+                            <h4>Song title</h4>
+                            <p>Artist Name</p>
+                            <p>Album Name</p>
+                        </div>
+                    </div>    
+                </div>
+            </article>
+        </nav>
     </main>
+
 
     <footer>
         <!-- Your footer content here -->

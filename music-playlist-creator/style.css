@@ -2,5 +2,162 @@ body {
     font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f8f8f8;
+    background-color: #ddd8cc;
+}
+h1{
+    background-color: #c8ae99;
+    border: 3px solid #971717;
+    height: 50px;
+    margin:0;
+}
+#title{
+    font-size: 25px;
+    color: #971717;
+    margin-left: 45px;
+    display: inline;
+}
+footer{
+    background-color: #c8ae99;
+    border:3px solid #971717;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+.playlist-cards{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, auto);
+    gap: 20px;
+    padding: 20px;
+    place-items: center;
+}
+.playlist{
+    background-color: #971717;
+    color:#c8ae99;
+    border: 3px black;
+    height: 300px;
+    width: 200px;
+    border: 2px solid white;
+}
+.playlist:hover{
+    margin-top: -30px;
+}
+#holder{
+    margin: 10px;
+    height: 150px;
+    margin-left: 25px;
+    margin-top: 15px;
+    border-radius: 10%;
+    cursor: pointer;
+    transition: 0.3s;
+}
+#holder:hover{
+    opacity: 0.7;
+}
+.modal{
+   display: none; /* Hidden by default */
+   position: fixed; /* Stay in place */
+   z-index: 1; /* Sit on top */
+   left: 0;
+   top: 0;
+   width: 100%; /* Full width */
+   height: 100%; /* Full height */
+   overflow: auto; /* Enable scroll if needed */
+   background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+.modal-content{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   background-color:  #ddd8cc;
+   border: 1px solid #888;
+   border-radius: 5%;
+   width: 80%;
+   height: 500px;
+   position: absolute;
+   left: 22%;
+   top: 38%;
+   margin-left: -150px;
+   margin-top: -150px;
+
+}
+.close{
+   color: #aaa;
+   float: right;
+   font-size: 28px;
+   font-weight: bold;
+}
+.close:hover,.closer:focus{
+   color: black;
+   text-decoration: none;
+   cursor: pointer;
+}
+#heart{
+    height: 20px;
+    margin-left: 15px;
+    margin-top: 20px;
+}
+.text h3{
+    margin-left: 15px;
+}
+.text p{
+    margin-left: 15px;
+}
+#song-holder{
+    height: 100px;
+    width: 100px;
+    margin-top: -40px;
+}
+#playlist-holder{
+    height: 150px;
+    width: 150px;
+}
+#modal-container{
+    position: absolute;
+    display: grid;
+    grid-template-rows: repeat(4, 1fr);
+    display:flex;
+    flex-wrap: wrap;
+   border-radius: 5%;
+   width: 700px;
+   height: 500px;
+   position: absolute;
+   left: 45px;
+   top: 145px;
+}
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+#cover{
+    max-width: 200px;
+    border-radius: 20%;
+    float: left;
+    margin-right: 30px;
+    margin-top: 40px;
+    margin-left: 200px;
+    width: 140px;
+    height: 140px;
+}
+.playlist-info{
+    display: flex;
+    flex-direction: column;
+    margin-top: 40px;
+    color: #971717;
+}
+
+.song{
+    max-width: 200px;
+    border-radius: 20%;
+    float: left;
+    margin-right: 30px;
+    margin-left: 330px;
+    width: 60px;
+    height: 60px;
+}
+.song-info{
+    color: #971717;
 }
