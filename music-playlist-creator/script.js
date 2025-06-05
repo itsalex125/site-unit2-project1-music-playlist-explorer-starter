@@ -1,7 +1,6 @@
-function openModal(clickedImage){
-    let modal = document.querySelector(".playlistModal");
-    let modalimg = document.querySelector
-}
+let modal = document.getElementById("playlistModal");
+let img = document.querySelectorAll("#holder");
+let closeBtn = document.querySelector(".close");
 
 img.forEach(img =>{
     img.addEventListener("click", () =>{
