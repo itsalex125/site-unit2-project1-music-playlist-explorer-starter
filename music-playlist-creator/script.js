@@ -1,4 +1,4 @@
-let modal = document.getElementById("playlistModal");
+let modal = document.querySelector(".modal");
 let img = document.querySelectorAll("#holder");
 let closeBtn = document.querySelector(".close");
 
@@ -7,6 +7,11 @@ img.forEach(img =>{
         modal.style.display = "block";
     });
 });
+
+function openModal(clickedImage){
+    img.src = clickedImage.src;
+    modal.style.display = "block";
+}
 
 closeBtn.onclick = () =>{
     modal.style.display = "none";
@@ -34,13 +39,15 @@ const createPlaylist=(playlist)=>{
     const playlistElement = document.createElement('article');
     playlistElement.className = 'playlist' ;
     playlistElement.innerHTML = `
-            <article class = "playlist">
-                <img id="holder" src="/music-playlist-creator/assets/img/playlist.png">
+                <img id="holder" src="/music-playlist-creator/assets/img/playlist.png" onclick = "openModal(this)">
                 <article class = "text">
                 <h3>${playlist.playlist_name}</h3>
                 <p>${playlist.playlist_author}</p>
-                <img id= "heart" src="/music-playlist-creator/assets/img/heart.jpg">
-                </article>
-            </article>`;
+                <img id= "heart-holder" src="/music-playlist-creator/assets/img/heart.jpg">
+                </article>`;
     return playlistElement;
 }
+// const createSongs=(song)=>{
+//     console.log(song);
+//     const 
+// }
