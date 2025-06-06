@@ -196,9 +196,26 @@ footer{
     width: 100%;
     justify-content: flex-end;
 }
+#featured-button:hover{
+    border: 2px solid red;
+}
 .fcontainer #featured-button{
     width: 100px;
     height: 50px;
     display: flex; 
     align-items: center;
+}
+#sort-select{
+    width: 100px;
+    height:30 px;
+}
+#delete{
+    display: inline;
+    height: 15px;
+    width: 60px;
+}
+
+#delete:hover{
+    opacity: .3;
+    border: solid 2px red;
 }

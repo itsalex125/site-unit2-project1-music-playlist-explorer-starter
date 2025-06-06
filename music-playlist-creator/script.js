@@ -7,6 +7,7 @@ let currentSongs = [];
 
 const loadPlaylist = () => {
     const container = document.querySelector(".playlist-cards");
+    container.innerHTML = '';
 
     playlists.forEach(playlist => {
     const playlistElement = document.createElement('article');
@@ -16,8 +17,9 @@ const loadPlaylist = () => {
     <article class = "text">
     <h3>${playlist.playlist_name}</h3>
     <p>${playlist.playlist_author}</p>
-    <img id= "heart-holder" src="/music-playlist-creator/assets/img/bheart.jpg" class = "heart" data-likes = "0" data-liked = "true">
-    <span class = "like-count">0</span>
+    <img id= "heart-holder" src="/music-playlist-creator/assets/img/bheart.jpg" class = "heart" data-liked = "false">
+    <span class = "like-count">${playlist.likes}<span>
+    <button id = "delete">Delete</button>
     </article>
     `;
     
@@ -26,31 +28,33 @@ const loadPlaylist = () => {
         openModal(id);
     });
     
+    const deleteBtn = playlistElement.querySelector("#delete");
+    deleteBtn.addEventListener("click", () =>{
+        container.removeChild(playlistElement);
+    });
+
     const heart = playlistElement.querySelector(".heart");
     const likeCount = playlistElement.querySelector(".like-count");
 
     heart.addEventListener("click", () => {
         let liked = heart.dataset.liked === "true";
-        let count = parseInt(heart.dataset.likes);
 
         if(liked){
-            console.log("like: ", count);
-            count++;
+            playlist.likes--;
+            heart.dataset.liked = "false";
+            heart.src = "/music-playlist-creator/assets/img/bheart.jpg";
+        } else {
+
+            playlist.likes++;
             heart.dataset.liked = "true";
             heart.src = "/music-playlist-creator/assets/img/heart.jpg";
-        } else {
-            console.log("unlike:", count);
-            heart.dataset.liked = "false";
-            heart.src = "/music-playlist-creator/assets/img/bheart.jpg"; 
         } 
-        heart.dataset.liked = count;
-        likeCount.textContent = count;
+        likeCount.innerHTML = playlist.likes;
     });
     container.appendChild(playlistElement);
     });
-    
 };
-
+//this opens the modal and populates 
 const openModal = (playlistId) => {
     const headerContainer = document.querySelector("#playlist-header");
     headerContainer.innerHTML = ''; 
@@ -76,7 +80,8 @@ const openModal = (playlistId) => {
     renderSongs(currentSongs);
     
     modal.style.display = "block";
-};
+}
+//This is used to render the songs on the page
     const renderSongs = (songsToRender) => {
         const songsContainer = document.querySelector("#songs-list");
         songsContainer.innerHTML = '';
@@ -108,10 +113,31 @@ shuffleBtn.onclick = () => {
 };
 document.addEventListener("DOMContentLoaded", () => {
     loadPlaylist();
+    let currentPlaylist = playlists;
     const featuredBtn = document.getElementById("featured-button");
+
     if(featuredBtn){
         featuredBtn.addEventListener("click", () => {
             window.location.href = "featured.html";
+        });
+    
+    
+    const sortSelect = document.getElementById("sort-select");
+    sortSelect.addEventListener("change", (event) => {
+        const value = event.target.value;
+        if(value === "az"){
+            currentPlaylist.sort((a,b) => a.playlist_name.localeCompare(b.playlist_name));
+        }
+        else if(value === "za"){
+            currentPlaylist.sort((a,b) => b.playlist_name.localeCompare(a.playlist_name));
+        }
+        else if(value === "likes"){
+            currentPlaylist.sort((a,b) => b.likes - a.likes);
+        }
+        else if(value === "new"){
+            currentPlaylist.sort((a,b) => new Date(a.data_added) - new Date(b.data_added))
+        }
+        loadPlaylist(currentPlaylist);
         });
     }
 });

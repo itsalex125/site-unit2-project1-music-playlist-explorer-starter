@@ -25,7 +25,7 @@ let songs = [{"title": "Slow Jam Nights",
     "artist": "Chillmatic",
     "album": "Drizzle Dreams",
     "duration": "2:45",
-    "image": "/music-playlist-creator/assets/img/cLofi",
+    "image": "/music-playlist-creator/assets/img/cLofi.jpg",
     "playlist_id": 2
     },
     {
@@ -33,7 +33,7 @@ let songs = [{"title": "Slow Jam Nights",
     "artist": "Beatleaves",
     "album": "Dusk Bops",
     "duration": "2:37",
-    "image": "/music-playlist-creator/assets/img/cLofi",
+    "image": "/music-playlist-creator/assets/img/cLofi.jpg",
     "playlist_id": 2
     },
     {
@@ -41,7 +41,7 @@ let songs = [{"title": "Slow Jam Nights",
     "artist": "Lofigram",
     "album": "Muted Mornings",
     "duration": "2:55",
-    "image": "/music-playlist-creator/assets/img/cLofi",
+    "image": "/music-playlist-creator/assets/img/cLofi.jpg",
     "playlist_id": 2
     },
     {
