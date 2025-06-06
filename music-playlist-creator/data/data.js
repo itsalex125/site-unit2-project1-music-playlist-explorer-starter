@@ -1,48 +1,48 @@
 let playlists = [{
-    "playlistID": 1,
+    "id": 1,
     "playlist_name": "r-and-b",
     "playlist_author": "Jeff",
-    "songs": 3},
+    "image": "/music-playlist-creator/assets/img/crb.jpg"},
     {
-    "playlistID": 2,
+    "id": 2,
     "playlist_name": "lofi-beats",
     "playlist_author": "Anna",
-    "songs": 12
+    "image": "/music-playlist-creator/assets/img/cLofi.jpg"
     },
     { 
-    "playlistID": 3,
+    "id": 3,
     "playlist_name": "90s-rock",
     "playlist_author": "Mike",
-    "songs": 8
+    "image": "/music-playlist-creator/assets/img/rock.jpg"
     },
     {
-    "playlistID": 4,
+    "id": 4,
     "playlist_name": "jazz-nights",
     "playlist_author": "Sophia",
-    "songs": 15
+    "image": "/music-playlist-creator/assets/img/jazz.jpg"
     },
     {
-    "playlistID": 5,
+    "id": 5,
     "playlist_name": "pop-hits",
     "playlist_author": "Carlos",
-    "songs": 20
+    "image": "/music-playlist-creator/assets/img/pop.jpg"
     },
     {
-    "playlistID": 6,
+    "id": 6,
     "playlist_name": "classical-vibes",
     "playlist_author": "Emily",
-    "songs": 9
+    "image": "/music-playlist-creator/assets/img/classical.jpg"
     },
     {
-    "playlistID": 7,
+    "id": 7,
     "playlist_name": "edm-energy",
     "playlist_author": "Liam",
-    "songs": 17
+    "image": "/music-playlist-creator/assets/img/edm.jpg"
     },
     {
-    "playlistID": 8,
+    "id": 8,
     "playlist_name": "country-roads",
     "playlist_author": "Megan",
-    "songs": 5
+    "image": "/music-playlist-creator/assets/img/country.jpg"
     }
 ]

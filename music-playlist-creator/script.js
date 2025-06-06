@@ -1,53 +1,102 @@
-let modal = document.querySelector(".modal");
-let img = document.querySelectorAll("#holder");
-let closeBtn = document.querySelector(".close");
+const modal = document.querySelector("#playlistModal");
+const closeBtn = document.querySelector(".close");
+const featuredBtn = document.querySelector("featured-button");
+const shuffleBtn = document.querySelector("#shuffle-button");
 
-img.forEach(img =>{
-    img.addEventListener("click", () =>{
-        modal.style.display = "block";
+let currentSongs = [];
+
+const loadPlaylist = () => {
+    const container = document.querySelector(".playlist-cards");
+
+    playlists.forEach(playlist => {
+    const playlistElement = document.createElement('article');
+    playlistElement.className = 'playlist';
+    playlistElement.innerHTML = `
+    <img id="holder" src="${playlist.image}" data-id="${playlist.id}" class="playlist-image">
+    <article class = "text">
+    <h3>${playlist.playlist_name}</h3>
+    <p>${playlist.playlist_author}</p>
+    <img id= "heart-holder" src="/music-playlist-creator/assets/img/heart.jpg" class = "heart" data-likes = "0">
+    <span class = "like-count">0</span>
+    </article>
+    `;
+    
+    playlistElement.querySelector(".playlist-image").addEventListener("click", (e) => {
+        const id = parseInt(e.target.dataset.id);
+        openModal(id);
     });
-});
 
-function openModal(clickedImage){
-    img.src = clickedImage.src;
-    modal.style.display = "block";
-}
-
-closeBtn.onclick = () =>{
-    modal.style.display = "none";
+    playlistElement.querySelector(".heart").addEventListener("click", (e) =>{
+        let count = parseInt(e.target.dataset.likes);
+        count++;
+        e.target.dataset.likes = count;
+        e.target.nextElementSibling.textContent = count;
+    });
+    container.appendChild(playlistElement);
+    });
 };
 
-modal.onclick = (e) =>{
+const openModal = (playlistId) => {
+    const headerContainer = document.querySelector("#playlist-header");
+    headerContainer.innerHTML = ''; 
+
+    const songsContainer = document.querySelector("#songs-list");
+    songsContainer.innerHTML = '';
+
+    const playlist = playlists.find(p => p.id === playlistId);
+    if(!playlist) return;
+
+    const titleElement = document.createElement('article');
+    titleElement.className = 'playlist-details';
+    titleElement.innerHTML = `
+        <img id = "cover" src = "${playlist.image}">
+        <div id = "playlist-info">
+        <h2>${playlist.playlist_name}</h2>
+        <p>${playlist.playlist_author}</p>
+        </div>
+    `;
+    headerContainer.appendChild(titleElement);
+
+    currentSongs = songs.filter(song => song.playlist_id === playlistId);
+    renderSongs(currentSongs);
+    
+    modal.style.display = "block";
+};
+    const renderSongs = (songsToRender) => {
+        const songsContainer = document.querySelector("#songs-list");
+        songsContainer.innerHTML = '';
+        songsToRender.forEach(song => {
+        const songElement = document.createElement('article');
+        songElement.className = 'song-details';
+        songElement.innerHTML = `
+        <img id = "song" src = "${song.image}">
+        <div id = "song-info">
+        <h4>${song.title}</h4>
+        <p>${song.artist}</p>
+        <p>${song.album}</p>
+        <p id = "time">${song.duration}</p>
+        </div>`;
+        songsContainer.appendChild(songElement);
+    });
+    };
+
+
+closeBtn.onclick = () => modal.style.display = "none";
+window.onclick = (e) => {
     if(e.target === modal) modal.style.display = "none";
 };
 
-const loadPlaylist = () => {
-    console.log('loading Playlist');
-    const container = document.querySelector(".playlist-cards");
-    for(const pl of playlists){
-        const elem = createPlaylist(pl);
-        container.appendChild(elem);
-    }
-}
-
+shuffleBtn.onclick = () => {
+    if(currentSongs.length === 0) return;
+    const shuffled = [...currentSongs].sort(()=> Math.random() -0.5);
+    renderSongs(shuffled);
+};
 document.addEventListener("DOMContentLoaded", () => {
     loadPlaylist();
+    const featuredBtn = document.getElementById("featured-button");
+    if(featuredBtn){
+        featuredBtn.addEventListener("click", () => {
+            window.location.href = "featured.html";
+        });
+    }
 });
-
-const createPlaylist=(playlist)=>{
-    console.log(playlist);
-    const playlistElement = document.createElement('article');
-    playlistElement.className = 'playlist' ;
-    playlistElement.innerHTML = `
-                <img id="holder" src="/music-playlist-creator/assets/img/playlist.png" onclick = "openModal(this)">
-                <article class = "text">
-                <h3>${playlist.playlist_name}</h3>
-                <p>${playlist.playlist_author}</p>
-                <img id= "heart-holder" src="/music-playlist-creator/assets/img/heart.jpg">
-                </article>`;
-    return playlistElement;
-}
-// const createSongs=(song)=>{
-//     console.log(song);
-//     const 
-// }

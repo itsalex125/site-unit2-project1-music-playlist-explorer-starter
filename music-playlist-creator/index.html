@@ -14,72 +14,24 @@
         <h1><p id="title">Music Player Explorer</p></h1>
     </header>
     <main>
-        <nav class = "playlist-cards">
-        </nav>
-                <div id="playlistModal" class = "modal">
+        <div class = "fcontainer"><button id = "featured-button">Featured Playlist</button></div>
+        <nav class = "playlist-cards"></nav>
+            <div id="playlistModal" class = "modal">
                 <span class = "close">&times;</span>
                 <div class="modal-content" id="img1">
-                        <div id = "container">
-                            <article id = "playlist-details">
-                                <img id = "cover" src = "/music-playlist-creator/assets/img/playlist.png">
-                                <div id = "playlist-info">
-                                    <h2>Playlist title</h2>
-                                    <p>Creator Name</p>
-                                </div>
-                            </article>
-                            <article id = "song-details">
-                            <img id = "song" src = "/music-playlist-creator/assets/img/song.png">
-                            <div id = "song-info">
-                                <h4>Song title</h4>
-                                <p>Artist Name</p>
-                                <p>Album Name</p>
-                                <p id = "time">time</p>
-                            </div>
-                            </article>
-                            <article id = "song-details">
-                            <img id = "song" src = "/music-playlist-creator/assets/img/song.png">
-                            <div id = "song-info">
-                                <h4>Song title</h4>
-                                <p>Artist Name</p>
-                                <p>Album Name</p>
-                                <p id = "time">time</p>
-                            </div>
-                            </article>
-                            <article id = "song-details">
-                            <img id = "song" src = "/music-playlist-creator/assets/img/song.png">
-                            <div id = "song-info">
-                                <h4>Song title</h4>
-                                <p>Artist Name</p>
-                                <p>Album Name</p>
-                                <p id = "time">time</p>
-                            </div>
-                            </article>
-                            <article id = "song-details">
-                            <img id = "song" src = "/music-playlist-creator/assets/img/song.png">
-                            <div id = "song-info">
-                                <h4>Song title</h4>
-                                <p>Artist Name</p>
-                                <p>Album Name</p>
-                                <p id = "time">time</p>
-                            </div>
-                            </article>
-                            <article id = "song-details">
-                            <img id = "song" src = "/music-playlist-creator/assets/img/song.png">
-                            <div id = "song-info">
-                                <h4>Song title</h4>
-                                <p>Artist Name</p>
-                                <p>Album Name</p>
-                                <p id = "time">time</p>
-                            </div>
-                            </article>
-                        </div>
+                    <div id = "container"></div>
+                        <div id = "playlist-header"></div>
+                        <div id="songs-list"></div>
+                    <button id = "shuffle-button">Shuffle Songs</button>
                 </div>
+            </div>
     </main>
 
 
     <footer>
         <!-- Your footer content here -->
     </footer>
+    <script src="data/songs.js"></script>
     <script src="data/data.js"></script>
     <script src="script.js"></script>
 </body>
