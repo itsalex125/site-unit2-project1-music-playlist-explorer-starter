@@ -15,6 +15,13 @@
     </header>
     <main>
         <div class = "fcontainer"><button id = "featured-button">Featured Playlist</button></div>
+        <label for="sort-select">Sort by:</label>
+        <select id="sort-select">
+            <option value="az">Name's (A-Z)</option>
+            <option value="za">Name's (Z-A)</option>
+            <option value="likes">Most Liked</option>
+            <option value="az">Newest</option>
+        </select>
         <nav class = "playlist-cards"></nav>
             <div id="playlistModal" class = "modal">
                 <span class = "close">&times;</span>

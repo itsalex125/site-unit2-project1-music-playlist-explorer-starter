@@ -16,7 +16,7 @@ const loadPlaylist = () => {
     <article class = "text">
     <h3>${playlist.playlist_name}</h3>
     <p>${playlist.playlist_author}</p>
-    <img id= "heart-holder" src="/music-playlist-creator/assets/img/heart.jpg" class = "heart" data-likes = "0">
+    <img id= "heart-holder" src="/music-playlist-creator/assets/img/bheart.jpg" class = "heart" data-likes = "0" data-liked = "true">
     <span class = "like-count">0</span>
     </article>
     `;
@@ -25,15 +25,30 @@ const loadPlaylist = () => {
         const id = parseInt(e.target.dataset.id);
         openModal(id);
     });
+    
+    const heart = playlistElement.querySelector(".heart");
+    const likeCount = playlistElement.querySelector(".like-count");
 
-    playlistElement.querySelector(".heart").addEventListener("click", (e) =>{
-        let count = parseInt(e.target.dataset.likes);
-        count++;
-        e.target.dataset.likes = count;
-        e.target.nextElementSibling.textContent = count;
+    heart.addEventListener("click", () => {
+        let liked = heart.dataset.liked === "true";
+        let count = parseInt(heart.dataset.likes);
+
+        if(liked){
+            console.log("like: ", count);
+            count++;
+            heart.dataset.liked = "true";
+            heart.src = "/music-playlist-creator/assets/img/heart.jpg";
+        } else {
+            console.log("unlike:", count);
+            heart.dataset.liked = "false";
+            heart.src = "/music-playlist-creator/assets/img/bheart.jpg"; 
+        } 
+        heart.dataset.liked = count;
+        likeCount.textContent = count;
     });
     container.appendChild(playlistElement);
     });
+    
 };
 
 const openModal = (playlistId) => {
@@ -100,3 +115,4 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 });
+
