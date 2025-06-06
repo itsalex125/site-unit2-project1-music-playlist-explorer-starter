@@ -18,7 +18,7 @@ const loadPlaylist = () => {
     <h3>${playlist.playlist_name}</h3>
     <p>${playlist.playlist_author}</p>
     <img id= "heart-holder" src="/music-playlist-creator/assets/img/bheart.jpg" class = "heart" data-liked = "false">
-    <span class = "like-count">${playlist.likes}<span>
+    <span class = "like-count">${playlist.likes}</span>
     <button id = "delete">Delete</button>
     </article>
     `;
@@ -51,6 +51,7 @@ const loadPlaylist = () => {
         } 
         likeCount.innerHTML = playlist.likes;
     });
+    
     container.appendChild(playlistElement);
     });
 };
@@ -141,4 +142,10 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 });
+
+// function search(){
+//     var input, filter, textValue;
+//     input = document.getElementById("searchInput");
+//     filter = input.value.toUpperCase();
+// }
 

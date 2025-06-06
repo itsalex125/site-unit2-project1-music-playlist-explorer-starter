@@ -39,6 +39,7 @@ footer{
     height: 300px;
     width: 200px;
     border: 2px solid white;
+    border-radius: 10%;
 }
 .playlist:hover{
     margin-top: -30px;
@@ -191,7 +192,7 @@ footer{
     opacity: .3;
     border: 2px solid red;
 }
-.fcontainer{
+#fcontainer{
     display: flex;
     width: 100%;
     justify-content: flex-end;
@@ -199,11 +200,52 @@ footer{
 #featured-button:hover{
     border: 2px solid red;
 }
-.fcontainer #featured-button{
+#sort-select:hover{
+    border: 2px solid red;
+}
+#searchInput:hover{
+    border: 2px solid red;
+}
+#clear:hover{
+    border: 2px solid red;
+}
+#search:hover{
+    opacity: 0.3;
+    border: 2px solid red;
+}
+#fcontainer #featured-button{
     width: 100px;
     height: 50px;
     display: flex; 
     align-items: center;
+}
+#fcontainer #sort-select{
+    width: 100px;
+    height: 50px;
+    display: flex; 
+    align-items: center;
+}
+#fcontainer #searchInput{
+    width: 45%;
+    height: 50px;
+    display: flex; 
+    align-items: center;
+}
+#fcontainer #clear{
+    width: 100px;
+    height: 50px;
+    display: flex; 
+    align-items: center;
+}
+#fcontainer #search{
+    width: 100px;
+    height: 50px;
+    display: flex; 
+    align-items: center;
+}
+#fcontainer{
+    display: flex;
+    justify-content: center;
 }
 #sort-select{
     width: 100px;
@@ -211,7 +253,7 @@ footer{
 }
 #delete{
     display: inline;
-    height: 15px;
+    height: 20px;
     width: 60px;
 }
 

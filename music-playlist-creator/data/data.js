@@ -15,7 +15,7 @@ let playlists = [{
     },
     { 
     "id": 3,
-    "playlist_name": "90s-rock",
+    "playlist_name": "rock",
     "playlist_author": "Mike",
     "image": "/music-playlist-creator/assets/img/rock.jpg",
     "likes": 40,
@@ -26,7 +26,7 @@ let playlists = [{
     "playlist_name": "jazz-nights",
     "playlist_author": "Sophia",
     "image": "/music-playlist-creator/assets/img/jazz.jpg",
-    "likes": 50,
+    "likes": 0,
     "data_added": "12/03/2025"
     },
     {

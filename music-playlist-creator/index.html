@@ -14,14 +14,23 @@
         <h1><p id="title">Music Player Explorer</p></h1>
     </header>
     <main>
-        <div class = "fcontainer"><button id = "featured-button">Featured Playlist</button></div>
-        <select id="sort-select">
-            <option>Please select a value</option>
-            <option value="az">Names (A-Z)</option>
-            <option value="za">Names (Z-A)</option>
-            <option value="likes">Most Liked</option>
-            <option value="new">Newest</option>
-        </select>
+        <nav id = "fcontainer">
+            <button id = "featured-button">
+                Featured Playlist
+            </button>        
+            <select id="sort-select">
+                <option>Please select a value</option>
+                <option value="az">Names (A-Z)</option>
+                <option value="za">Names (Z-A)</option>
+                <option value="likes">Most Liked</option>
+                <option value="new">Newest</option>
+            </select>
+            <!-- <input type="text" id="searchInput" placeholder="Search...">
+            <ul id="searchResults"></ul>
+            <button id = "search">Search</button>
+            <button id = "clear">Clear</button> -->
+        </nav>
+
         <nav class = "playlist-cards"></nav>
             <div id="playlistModal" class = "modal">
                 <span class = "close">&times;</span>
